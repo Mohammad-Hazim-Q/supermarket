@@ -1,0 +1,58 @@
+@import 'variables';
+
+.home-landing-container{
+    min-height: 250px;
+    background-image: url('../../../../../assets/images/background-pattern.svg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    border-radius: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &__content-wrapper{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        &__logo{
+            width: 200px;
+
+        }
+
+        h1{
+               font-weight: bold;
+               margin-top: 15px; 
+        }
+    }
+}
+
+
+.card-wrapper{
+    justify-content: center;
+    gap: 10px;
+    &__category-card{
+        box-shadow: 0 0 5px #00000013;
+        cursor: pointer;
+        padding: 10px;
+        border-radius: 5px;
+        transition: background-color 0.2s ease-in;
+
+        &:hover{
+            background-color: $primary-100;
+        }
+        &__img{
+            img{
+                width: 75px;
+                overflow: hidden;
+            }
+        }
+        &__title{
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    }
+}

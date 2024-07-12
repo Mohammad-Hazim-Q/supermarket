@@ -1,0 +1,93 @@
+<div class="home-landing-container mb-5">
+    <div class="home-landing-container__content-wrapper">
+        <img src="assets/images/app-logo.svg" class="home-landing-container__content-wrapper__logo">
+        <h1>{{'pages.home.slogan' | translate}}</h1>
+    </div>
+</div>
+
+<div class="mb-5">
+    <app-category-wrapper [title]="'pages.home.ourCategories' | translate">
+
+        <div class="card-wrapper row">
+            <div class="card-wrapper__category-card col-md-1">
+                <div class="card-wrapper__category-card__img">
+                    <img src="assets/images/product-categories/bread.png" alt="">
+                </div>
+                <div class="card-wrapper__category-card__title">Bread</div>
+            </div>
+            <div class="card-wrapper__category-card col-md-1">
+                <div class="card-wrapper__category-card__img">
+                    <img src="assets/images/product-categories/fruit.png" alt="">
+                </div>
+                <div class="card-wrapper__category-card__title">Fruit</div>
+            </div>
+            <div class="card-wrapper__category-card col-md-1">
+                <div class="card-wrapper__category-card__img">
+                    <img src="assets/images/product-categories/dairy.png" alt="">
+                </div>
+                <div class="card-wrapper__category-card__title">Dairy</div>
+            </div>
+            <div class="card-wrapper__category-card col-md-1">
+                <div class="card-wrapper__category-card__img">
+                    <img src="assets/images/product-categories/meat.png" alt="">
+                </div>
+                <div class="card-wrapper__category-card__title">Meat</div>
+            </div>
+            <div class="card-wrapper__category-card col-md-1">
+                <div class="card-wrapper__category-card__img">
+                    <img src="assets/images/product-categories/frozen-food.png" alt="">
+                </div>
+                <div class="card-wrapper__category-card__title">Frozen food</div>
+            </div>
+            <div class="card-wrapper__category-card col-md-1">
+                <div class="card-wrapper__category-card__img">
+                    <img src="assets/images/product-categories/coffee.png" alt="">
+                </div>
+                <div class="card-wrapper__category-card__title">Coffee</div>
+            </div>
+            <div class="card-wrapper__category-card col-md-1">
+                <div class="card-wrapper__category-card__img">
+                    <img src="assets/images/product-categories/ice-cream.png" alt="">
+                </div>
+                <div class="card-wrapper__category-card__title">Ice cream</div>
+            </div>
+            <div class="card-wrapper__category-card col-md-1">
+                <div class="card-wrapper__category-card__img">
+                    <img src="assets/images/product-categories/cereals.png" alt="">
+                </div>
+                <div class="card-wrapper__category-card__title">Cereals</div>
+            </div>
+            <div class="card-wrapper__category-card col-md-1">
+                <div class="card-wrapper__category-card__img">
+                    <img src="assets/images/product-categories/snack.png" alt="">
+                </div>
+                <div class="card-wrapper__category-card__title">Snack</div>
+            </div>
+        </div>
+    </app-category-wrapper>
+</div>
+
+<div>
+    <app-category-wrapper [title]="'pages.home.youMayLike' | translate">
+        <div class="row">
+            <div class="col-md-3 mt-4">
+                <app-product-card></app-product-card>
+            </div>
+            <div class="col-md-3 mt-4">
+                <app-product-card></app-product-card>
+            </div>
+            <div class="col-md-3 mt-4">
+                <app-product-card></app-product-card>
+            </div>
+            <div class="col-md-3 mt-4">
+                <app-product-card></app-product-card>
+            </div>
+            <div class="col-md-3 mt-4">
+                <app-product-card></app-product-card>
+            </div>
+            <div class="col-md-3 mt-4">
+                <app-product-card></app-product-card>
+            </div>
+        </div>
+    </app-category-wrapper>
+</div>

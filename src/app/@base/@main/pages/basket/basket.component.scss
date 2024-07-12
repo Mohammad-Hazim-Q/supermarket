@@ -1,0 +1,66 @@
+@import 'variables';
+
+.basket-container{
+
+    &__basket-items{
+        height: 350px;
+        overflow-y: auto;
+        &__item{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 0 5px #DDD;
+            border-radius: 10px;
+            padding: 10px;
+
+            .item-img-container{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img{
+                    width: 50px;
+                }
+            }
+
+            .item-metdata{
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                flex: 1;
+                .item-title{
+                    
+                    & > span{
+                        display: block;
+                        margin: 15px 0;
+                    }
+
+                    & span:first-of-type{
+                        white-space: nowrap ;
+                        width: 300px;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                    }
+
+                    & span:last-of-type{
+                        font-size: 14px;
+                        color: #474747;
+                        font-weight: bold;
+                    }
+                }
+                .item-actions{
+                    display: flex;
+                    align-items: center;
+                    gap: 15px;
+
+                    .item-quantity{
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+
+    &__basket-invoice{
+
+    }
+}

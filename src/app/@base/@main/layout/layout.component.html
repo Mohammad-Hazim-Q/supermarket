@@ -1,0 +1,117 @@
+<mat-sidenav-container [dir]="direction" class="sidenav-container">
+  <mat-sidenav #leftDrawer class="sidenav" position="start" [opened]="true" fixedInViewport [mode]="'side'">
+
+    <div class="side-nav-logo-container">
+      <img src="assets/images/app-logo.svg" alt="side-nav-logo">
+    </div>
+
+    <div class="sidenav__item-container">
+
+      <div class="sidenav__item" routerLink="/main/home" routerLinkActive="active">
+        <mat-icon fontSet="material-icons-outlined">home</mat-icon>
+        <span>{{'pages.home.title'| translate}}</span>
+      </div>
+      <div class="sidenav__item" routerLink="/main/products" routerLinkActive="active">
+
+        <mat-icon fontSet="material-icons-outlined">storefront</mat-icon>
+
+        <span>{{'pages.products.title'| translate}}</span>
+      </div>
+
+      <div class="sidenav__item" routerLink="/main/favorites" routerLinkActive="active">
+        <mat-icon fontSet="material-icons-outlined">favorite_border</mat-icon>
+        <span>{{'pages.favorites.title'| translate}}</span>
+      </div>
+
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav #rightDrawer class="right-sidenav" position="end" fixedInViewport [mode]="'over'">
+
+    <ng-container *ngIf="rightDrawer.opened">
+
+      <app-right-drawer-container [title]="'pages.basket.title' | translate">
+        <app-basket></app-basket>
+      </app-right-drawer-container>
+
+    </ng-container>
+
+
+  </mat-sidenav>
+
+
+  <mat-sidenav-content class="sidenav-content">
+    <mat-toolbar class="sidenav-toolbar">
+
+      <header class="header-container">
+        <div class="header-container__item">
+
+          <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="leftDrawer.toggle()">
+            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+          </button>
+        </div>
+
+        <div class="header-container__item header-action-controls">
+          <div class="action-control">
+
+            <button (click)="rightDrawer.open()" [matTooltip]="'pages.basket.title'| translate"
+              mat-icon-button><mat-icon fontSet="material-icons-outlined">shopping_cart</mat-icon></button>
+          </div>
+
+          <div class="action-control">
+            <!-- *ngIf="userFullName" -->
+            <div class="avatar-container" [matMenuTriggerFor]="userControlMenu">
+
+              <ngx-avatars size="30" name="Jhon Doe"></ngx-avatars>
+
+              <div class="avatar-name">{{userFullName}}</div>
+              <!-- <button [matMenuTriggerFor]="userControlMenu"
+                              mat-icon-button><mat-icon>expand_more</mat-icon></button> -->
+
+              <mat-menu #userControlMenu="matMenu">
+
+                <div class="menu-item-container">
+                  <button class="w-100 header-menu" routerLink="/main/my-profile" mat-button>
+                    <mat-icon>person</mat-icon>
+                    {{'pages.layout.header.userControlPanel.userProfile' |translate}}
+                  </button>
+                </div>
+                <div class="menu-item-container">
+                  <button class="w-100 header-menu" (click)="logout()" color="warn" mat-button>
+                    <mat-icon>logout</mat-icon>
+                    {{'pages.layout.header.userControlPanel.logout' | translate}}</button>
+                </div>
+
+
+              </mat-menu>
+
+            </div>
+          </div>
+
+          <div class="action-control" *ngFor="let lang of filteredSystemLanguages">
+            <div class="lang-container" (click)="switchLanguage(lang)">
+              <mat-icon class="lang-icon">language</mat-icon>
+              <span class="current-lang">{{currentLanguage}}</span>
+            </div>
+
+          </div>
+        </div>
+
+
+        <div class="http-loader-container">
+          <mat-progress-bar *ngIf="httpLoader$ | async" mode="indeterminate"></mat-progress-bar>
+        </div>
+
+      </header>
+
+    </mat-toolbar>
+
+    <div class="app-container">
+      <main>
+        <router-outlet></router-outlet>
+      </main>
+    </div>
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

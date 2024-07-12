@@ -1,0 +1,184 @@
+@import 'variables';
+
+.sidenav-container {
+  height: 100%;
+  background: #FFF;
+}
+
+.sidenav {
+  width: 175px;
+  &__item-container{
+    // height: calc(100% - 200px);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  &__item{
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 40px;
+    padding: 5px;
+    margin: 10px 0;
+    cursor: pointer;
+    color: $text-primary;
+    font-size: 14px;
+    border-radius: 50px;
+    
+    &:hover{
+        background-color: $primary-50;
+        transition: all 0.3s ease-in;
+    }
+    
+    &.active{
+      &:not(mat-icon){
+        background-color: $primary-100;
+      }
+      font-weight: 600;
+  }
+}
+
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.app-container{
+  max-width: 2100px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+.sidenav-toolbar{
+  position: relative;
+  background: $primary-50;
+  & .http-loader-container{
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+  }
+}
+
+.header-container{
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  &__item{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &.header-action-controls{
+          display: flex;
+          gap: 10px;
+          & .action-control{
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              gap: 5px;
+              padding: 0 7px;
+              &:not(:last-of-type){
+                  border-right: 1px solid #ddd;
+                  border-left: unset;
+                  &:dir(rtl){
+                      border-left: 1px solid #ddd;
+                      border-right: unset;
+                  }
+              }
+
+              mat-icon{
+                  color: $text-primary;
+              }
+              .avatar-container{
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  font-size: 12px;
+                  gap: 10px;
+                  cursor: pointer;
+              }
+          
+              .current-lang{
+                  font-size: 12px;
+                  position: relative;
+                  top: -4px;
+                  margin-inline-start: 5px;
+
+                  &:dir(ltr){
+                      top: -1px;
+                  }
+              }
+
+              .lang-container{
+                  cursor: pointer;
+              }
+
+              .lang-icon{
+                  top: 5px;
+                  position: relative;
+                  
+                  &:dir(ltr){
+                      top: 7px;
+                  }
+              }
+             
+          }
+      }
+  }
+
+}
+
+.side-nav-logo-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 0 25px 0;
+  & img{
+      width: 100px;
+  }
+}
+
+.sidenav-content.mat-drawer-content{
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.menu-item-container{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  margin: 5px 0;
+  &:last-of-type{
+      margin-bottom: 0;
+  }
+}
+
+::ng-deep .header-menu{
+  display: flex !important;
+  justify-content: start !important;
+  color: rgba(0,0,0,.54) !important;
+}
+
+.active-button{
+  mat-icon{
+      color: $primary !important;
+  }
+}
+
+.right-sidenav{
+  width: 580px;
+}

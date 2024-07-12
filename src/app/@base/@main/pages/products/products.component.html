@@ -1,0 +1,32 @@
+<button (click)="goBack()" color="primary" mat-stroked-button>
+    <div class="d-flex justify-content-center align-items-center gap-2">
+        <mat-icon fontSet="material-icons-outlined">arrow_back</mat-icon>
+        <span>{{'shared.misc.back' | translate}}</span>
+    </div>
+
+</button>
+
+<div class="mt-5">
+    <app-category-wrapper [title]="'pages.home.youMayLike' | translate">
+        <div class="row">
+            <div class="col-md-3 mt-4">
+                <app-product-card></app-product-card>
+            </div>
+            <div class="col-md-3 mt-4">
+                <app-product-card></app-product-card>
+            </div>
+            <div class="col-md-3 mt-4">
+                <app-product-card></app-product-card>
+            </div>
+            <div class="col-md-3 mt-4">
+                <app-product-card></app-product-card>
+            </div>
+            <div class="col-md-3 mt-4">
+                <app-product-card></app-product-card>
+            </div>
+            <div class="col-md-3 mt-4">
+                <app-product-card></app-product-card>
+            </div>
+        </div>
+    </app-category-wrapper>
+</div>

@@ -1,0 +1,17 @@
+<div class="right-drawer-container">
+
+    <div class="right-drawer-container__title-container">
+
+        <div class="right-drawer-container__title-container__title">{{title}}</div>
+        <button (click)="close()" [matTooltip]="'shared.dialog.close' | translate"
+            mat-icon-button><mat-icon>close</mat-icon></button>
+    </div>
+
+
+    <div class="right-drawer-container__content">
+
+        <ng-content></ng-content>
+
+    </div>
+
+</div>

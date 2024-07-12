@@ -1,0 +1,53 @@
+
+
+/*
+* Main Application colors
+*/
+
+@use './helper-styles/palette.scss' as palette-config;
+
+$primary-50: map-get(palette-config.$primary-palette, 50); 
+$primary-100: map-get(palette-config.$primary-palette, 100); 
+$primary-200: map-get(palette-config.$primary-palette, 200); 
+$primary-300: map-get(palette-config.$primary-palette, 300); 
+$primary-400: map-get(palette-config.$primary-palette, 400); 
+
+$primary: map-get(palette-config.$primary-palette, 500); 
+
+$primary-600: map-get(palette-config.$primary-palette, 600); 
+$primary-700: map-get(palette-config.$primary-palette, 700); 
+$primary-800: map-get(palette-config.$primary-palette, 800); 
+$primary-900: map-get(palette-config.$primary-palette, 900); 
+
+$secondary: #e86f78;
+$warn: #DA2C20;
+
+/*
+* Text Main colors
+*/
+
+$text-primary: #020001;
+$text-primary-active: #FFF;
+$text-hover: #838383;
+
+/*
+* Toaster Main colors
+*/  
+
+$toast-success: #118135;    
+$toast-success-background: #EBFBF5;    
+$toast-info: #EB8700;    
+$toast-info-background: #FFF9EA;    
+$toast-danger: #DA2C20;    
+$toast-danger-background: #FDEDEF;    
+$toast-text: #333333;    
+$toast-close: #A8A9A9;
+
+$font-color: #13121C;
+$dark-grey: #BABABA;
+$progress-bar-indicator: #0088CC;
+$progress-bar-track: #EFEFEF;
+$progress-spinner-track: #00758F;
+$white-color: #ffffff;
+$black-color: #000000;
+$grey-border: #E1E4ED;

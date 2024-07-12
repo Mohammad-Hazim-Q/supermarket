@@ -1,0 +1,26 @@
+
+
+.right-drawer-container{
+    margin-top: 10px;
+    padding: 10px;
+
+    &__title-container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #DDD;
+        margin-bottom: 30px;
+
+        &__title{
+            font-size: 18px;
+            font-weight: 500;
+        }
+    }
+
+}
+
+::ng-deep .mat-drawer-inner-container{
+    overflow-x: hidden;
+}
