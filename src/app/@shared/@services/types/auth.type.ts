@@ -1,7 +1,9 @@
 // import { UserType } from "@main/@base/@pages/users/types/user.type";
 
 export interface SystemUser {
-
+    id: number;
+    name: string;
+    email: string;
 }
 
 export interface LoginResponse {

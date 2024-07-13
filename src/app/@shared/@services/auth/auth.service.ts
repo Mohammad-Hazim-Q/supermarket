@@ -1,9 +1,10 @@
 import { Injectable, inject } from '@angular/core';
 import { Router } from '@angular/router';
+import * as CryptoJS from "crypto-js";
+import { environment } from 'environments/environment';
 import { ApiService } from '../api/api.service';
 import { LoginResponse, SystemUser } from '../types/auth.type';
 import { SuccessResponse } from '../types/shared.types';
-// import * as CryptoJS from "crypto-js"
 // import { UserRole, UserType } from '@main/@base/@pages/users/types/user.type';
 @Injectable({
   providedIn: 'root'
@@ -19,77 +20,21 @@ export class AuthService {
     return !!this.currentUser;
   }
 
-  get userFullName(): string {
-
-    // if (!this.currentUser?.firstName || !this.currentUser.lastName) return '';
-
-    // let fullName = this.currentUser?.firstName + ' ' + this.currentUser?.lastName
-
-    // return fullName
-    return '';
-  }
-
-
   getLoggedInUser() {
     return this._apiService.post<SystemUser>(this._path + '/me', {})
   }
 
-  // getUserPermissions(roleId: UserType): PagePermission[] {
-
-  //   let permissions: PagePermission[] = [];
-
-  //   switch (roleId) {
-
-  //     case UserType.Admin: {
-  //       permissions = [
-  //         PagePermission.Dashboard,
-  //         PagePermission.Tables,
-  //         PagePermission.Agencies,
-  //         PagePermission.Users,
-  //         PagePermission.PublicationLevels,
-  //         PagePermission.Publications,
-  //         PagePermission.Messages,
-  //         PagePermission.AuditRules,
-  //         PagePermission.ActionsLog,
-  //         PagePermission.InitialSettings,
-  //       ]
-  //       break;
-  //     }
-
-  //     case UserType.Data: {
-  //       permissions = [
-  //         PagePermission.OwnerTable
-  //       ]
-
-  //       break;
-  //     }
-  //   }
-
-  //   return permissions;
-  // }
-
-
-  loginStepOne(data: {
+  login(data: {
     email: string;
     password: string;
   }) {
 
-    return this._apiService.post<SuccessResponse>(this._path + '/loginFirstStep', {
+    return this._apiService.post<LoginResponse>(this._path + '/login', {
       email: data.email,
       password: data.password
     })
   }
 
-  loginStepTwo(data: {
-    email: string;
-    otp: string;
-  }) {
-
-    return this._apiService.post<LoginResponse>(this._path + '/loginSecondStep', {
-      email: data.email,
-      otp: data.otp
-    })
-  }
 
   setPassword(data: {
     token: string;
@@ -118,13 +63,14 @@ export class AuthService {
   }
 
   encrypt(dataToEncrypt: string) {
-    // return CryptoJS.AES.encrypt(dataToEncrypt, environment.secretKey).toString();
+    return CryptoJS.AES.encrypt(dataToEncrypt, environment.secretKey).toString();
   }
 
   decrypt(str: string) {
     // let data = CryptoJS.AES.decrypt(str, environment.secretKey).toString(CryptoJS.enc.Utf8);
     // return data;
   }
+
 
   kickOut() { // Just kidding
     localStorage.removeItem('access-token')

@@ -62,3 +62,56 @@ html:dir(rtl){
   @include mat.typography-hierarchy(typography-config.$main-arabic-typography);
   
 }
+
+
+.mat-button-small{
+  height: 30px !important;
+}
+
+.mat-button-medium{
+  height: 40px !important;
+}
+
+.mat-button-large{
+  height: 50px !important;
+}
+
+.message-success {
+  color: $toast-text;
+  background-color: $toast-success-background;
+  border-left: 10px solid $toast-success;
+  font-weight: bolder;
+  font-size: 16px;
+
+  & .mdc-snackbar__surface{
+    background-color: $toast-success-background !important;
+  }
+}
+
+.message-warning {
+  color: $toast-text;
+  background-color: $toast-danger-background;
+  border-left: 10px solid $toast-danger;
+  font-weight: bolder;
+  font-size: 16px;
+  & .mdc-snackbar__surface{
+    background-color: $toast-danger-background !important;
+  }
+}
+
+.message-info {
+  color: $toast-text;
+  background-color: $toast-info-background;
+  border-left: 10px solid $toast-info;
+  font-weight: bolder;
+  font-size: 16px;
+  & .mdc-snackbar__surface{
+    background-color: $toast-info-background !important;
+  }
+}
+
+.mat-snack-bar-container{
+  max-width: unset !important;
+  border-radius: 0 !important;
+
+}

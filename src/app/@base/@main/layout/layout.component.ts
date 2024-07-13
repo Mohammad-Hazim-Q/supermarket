@@ -36,7 +36,7 @@ export class LayoutComponent extends BaseComponent implements OnInit, AfterConte
   }
 
   get userFullName() {
-    return this._authService.userFullName;
+    return this._authService.currentUser?.name || '';
   }
 
   private _listenToChanges() {

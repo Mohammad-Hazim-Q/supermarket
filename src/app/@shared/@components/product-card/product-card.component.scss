@@ -1,13 +1,17 @@
 @import 'variables';
 
 .product-card{
+    height: 300px;
     &__img-wrapper{
         display: flex;
-            align-items: center;
-            justify-content: center;
+        align-items: center;
+        justify-content: center;
+        height: 190px;
         img{
             display: block;
-            width: 100px;
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
         }
     }
     &__title{
@@ -16,4 +20,8 @@
         text-overflow: ellipsis;
         white-space: nowrap;
     }
+}
+
+.card-actions-container{
+    flex: 1;
 }

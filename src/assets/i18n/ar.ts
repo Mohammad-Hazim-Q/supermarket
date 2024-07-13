@@ -9,7 +9,6 @@ export const arabicLocal: Locale = {
             external: {
                 login: {
                     stepOne: {
-                        appTitle: "النشرات الإحصائية الدورية",
                         login: "تسجيل الدخول",
                         form: {
                             email: "البريد الإلكتروني",
@@ -27,23 +26,8 @@ export const arabicLocal: Locale = {
                             loginTimeout: "انتهت مدة طلب تسجيل الدخول، يرجى المحاولة مرة أخرى لاحقًا."
                         }
                     },
-                    stepTwo: {
-                        title: "مصادقة الدخول",
-                        subTitle: "الرجاء إدخال رمز OTP (كلمة مرور لمرة واحدة) المرسل إلى عنوان البريد الإلكتروني المسجل.",
-                        verify: "تحقق"
-                    }
                 },
-                setPassword: {
-                    title: "تعيين كلمة المرور",
-                    form: {
-                        password: "كلمة المرور",
-                        confirmPassword: "تأكيد كلمة المرور"
-                    },
-                    message: {
-                        success: "تم تعيين كلمة المرور بنجاح.",
-                        error: "حدث خطأ أثناء تعيين كلمة المرور."
-                    }
-                },
+
                 validations: {
                     uppercaseError: "على الأقل حرف إنجليزي كبير واحد.",
                     lowercaseError: "على الأقل حرف إنجليزي صغير واحد.",
@@ -61,13 +45,16 @@ export const arabicLocal: Locale = {
             },
             products: {
                 title: "منتجاتنا",
+                matchingResults: "نتائج مطابقة",
             },
             favorites: {
                 title: "المفضلة",
             },
             basket: {
                 title: "السّلة",
-                total: "الإجمالي"
+                total: "الإجمالي",
+                checkout: "الدفع",
+                empty: "سلة مشترياتك فارغة"
             },
             layout: {
                 header: {
@@ -139,7 +126,8 @@ export const arabicLocal: Locale = {
                 remove: "إزالة",
                 edit: 'تعديل',
                 delete: 'حذف',
-                cancel: 'الغاء'
+                cancel: 'الغاء',
+                jd: "د.أ"
             }
         },
     }

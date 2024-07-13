@@ -7,7 +7,6 @@ export const englishLocal: Locale = {
             external: {
                 login: {
                     stepOne: {
-                        appTitle: "Periodic Statistical Bulletins",
                         login: "Login",
                         form: {
                             email: "Email",
@@ -25,22 +24,6 @@ export const englishLocal: Locale = {
                             loginTimeout: "Login request has timed out, please try again later."
                         }
                     },
-                    stepTwo: {
-                        title: "Login authentication",
-                        subTitle: "Please enter the OTP (One Time Password) sent to your registered email address.",
-                        verify: "Verify"
-                    }
-                },
-                setPassword: {
-                    title: "Set password",
-                    form: {
-                        password: "Password",
-                        confirmPassword: "Confirm Password"
-                    },
-                    message: {
-                        success: "Password has been set successfully.",
-                        error: "An error has occurred while setting the password."
-                    }
                 },
                 validations: {
                     uppercaseError: "At least one upper case English letter.",
@@ -59,6 +42,7 @@ export const englishLocal: Locale = {
             },
             products: {
                 title: "Products",
+                matchingResults: "Matching results",
             },
 
             favorites: {
@@ -66,7 +50,9 @@ export const englishLocal: Locale = {
             },
             basket: {
                 title: "Basket",
-                total: "Total"
+                total: "Total",
+                checkout: "Checkout",
+                empty: "Your basket is empty."
             },
             layout: {
                 header: {
@@ -141,6 +127,7 @@ export const englishLocal: Locale = {
                 edit: 'Edit',
                 delete: 'Delete',
                 cancel: 'Cancel',
+                jd: "JD"
             }
         }
 

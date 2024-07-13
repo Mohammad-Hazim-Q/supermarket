@@ -202,6 +202,26 @@
         </div>
     </div>
 
-    <div class="basket-container__basket-invoice"></div>
+    <div class="basket-container__basket-invoice">
+
+        <div class="invoice-total">
+            <div>
+                {{'pages.basket.total' | translate}}:
+
+            </div>
+            <div>
+                {{90}} {{'shared.misc.jd' | translate}}
+            </div>
+        </div>
+        <mat-divider class="mt-2"></mat-divider>
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+                <button class="w-100" color="primary" mat-raised-button>
+                    {{'pages.basket.checkout' | translate}}
+                </button>
+            </div>
+        </div>
+
+    </div>
 
 </div>

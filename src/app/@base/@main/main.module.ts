@@ -1,7 +1,9 @@
 import { BidiModule } from '@angular/cdk/bidi';
-import { NgModule } from '@angular/core';
+import { DEFAULT_CURRENCY_CODE, NgModule } from '@angular/core';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
@@ -37,6 +39,11 @@ import { BasketComponent } from './pages/basket/basket.component';
     MatProgressBarModule,
     MatBadgeModule,
     AvatarModule,
+    MatDividerModule,
+    MatDialogModule
+  ],
+  providers: [
+    { provide: DEFAULT_CURRENCY_CODE, useValue: 'JOD' }
   ]
 })
 export class MainModule { }

@@ -35,3 +35,12 @@ export interface DefaultReminder {
     status: number;
     id: null;
 }
+export interface Category extends AbstractResponseData {
+    icon: string;
+}
+
+export interface Product extends AbstractResponseData {
+    categoryId: number;
+    price: number;
+    imageUrl: string;
+}

@@ -7,25 +7,10 @@
 </button>
 
 <div class="mt-5">
-    <app-category-wrapper [title]="'pages.home.youMayLike' | translate">
+    <app-category-wrapper [title]="'pages.products.matchingResults' | translate">
         <div class="row">
-            <div class="col-md-3 mt-4">
-                <app-product-card></app-product-card>
-            </div>
-            <div class="col-md-3 mt-4">
-                <app-product-card></app-product-card>
-            </div>
-            <div class="col-md-3 mt-4">
-                <app-product-card></app-product-card>
-            </div>
-            <div class="col-md-3 mt-4">
-                <app-product-card></app-product-card>
-            </div>
-            <div class="col-md-3 mt-4">
-                <app-product-card></app-product-card>
-            </div>
-            <div class="col-md-3 mt-4">
-                <app-product-card></app-product-card>
+            <div *ngFor="let product of products$ | async" class="col-md-3 mt-4">
+                <app-product-card [product]="product"></app-product-card>
             </div>
         </div>
     </app-category-wrapper>

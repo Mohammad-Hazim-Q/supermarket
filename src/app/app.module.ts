@@ -6,6 +6,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TitleStrategy } from '@angular/router';
+import { appInterceptors } from '@core/@interceptors';
 import { TranslateModule } from '@ngx-translate/core';
 import { PageTitleStrategy } from '@services/title/page-title.strategy';
 import { AvatarModule } from 'ngx-avatars';
@@ -24,7 +25,6 @@ import { AppComponent } from './app.component';
     MatSnackBarModule,
     MatDialogModule,
     HttpClientModule,
-
     NgxSkeletonLoaderModule.forRoot({ animation: "progress" }),
     AvatarModule.forRoot({
       colors: ['#001041', '#04c4ad', '#58a8af', '#bf98e7', '#4028a0']
@@ -32,6 +32,7 @@ import { AppComponent } from './app.component';
     TranslateModule.forRoot(),
   ],
   providers: [
+    ...appInterceptors,
     MatSnackBarModule,
     {
       provide: TitleStrategy,

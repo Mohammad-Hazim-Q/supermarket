@@ -1,0 +1,69 @@
+<div [dir]="direction" class="login-card">
+
+    <div class="login-card__language">
+        <button mat-button color="primary" [matMenuTriggerFor]="languageMenu">{{currentLanguage}}</button>
+        <mat-menu #languageMenu="matMenu">
+            <button *ngFor="let lang of filteredSystemLanguages" (click)="switchLanguage(lang)"
+                mat-menu-item>{{("pages.layout.header.language." + lang) | translate}}</button>
+        </mat-menu>
+    </div>
+
+    <div class="login-card__logo_container">
+        <img src="assets/images/app-logo.svg" alt="Login Page Logo">
+    </div>
+
+    <div class="login-card__title">{{'pages.external.login.stepOne.login' | translate }}</div>
+
+
+    <form cdkTrapFocus [cdkTrapFocusAutoCapture]="true" class="login-card__form" [formGroup]="form">
+
+        <mat-form-field class="col-12 mt-1" appearance="outline">
+            <mat-label>{{'pages.external.login.stepOne.form.email' | translate}}</mat-label>
+            <input cdkFocusInitial type="email" formControlName="email" matInput>
+            <mat-icon matSuffix>email</mat-icon>
+            <mat-error *ngIf="form.get('email')?.hasError('required')">
+                {{'shared.validation.required' | translate}}
+            </mat-error>
+            <mat-error *ngIf="form.get('email')?.hasError('email')">
+                {{'pages.external.login.stepOne.form.validations.invalidEmail' | translate}}
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="col-12 mt-1" appearance="outline">
+            <mat-label>{{'pages.external.login.stepOne.form.password' | translate}}</mat-label>
+            <input formControlName="password" matInput [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+
+            <mat-error *ngIf="form.get('password')?.hasError('required')">
+                {{'shared.validation.required' | translate}}
+            </mat-error>
+
+        </mat-form-field>
+
+        <!-- <div>
+            <div>
+                <button (click)="null" class="login-card__form__forgot-password" mat-button color="primary">
+                    {{'pages.external.login.stepOne.form.forgotPassword' | translate}}
+                </button>
+            </div>
+        </div> -->
+
+        <div class="row mt-2">
+
+            <button color="primary" class="mat-button-large w-100" mat-raised-button [disabled]="form.invalid"
+                (click)="login()">{{'pages.external.login.stepOne.form.login' | translate}}</button>
+            <!-- <app-action-button (clicked)="login()" [disabled]="form.invalid" [fullWidth]="true" [isLoading]="isLoading"
+                [text]="'pages.external.login.stepOne.form.login' | translate" /> -->
+        </div>
+
+        <!-- <div class="col-12 mt-3">
+            <app-action-button [fullWidth]="true" size="medium"
+                [text]="'pages.external.login.stepOne.form.sso' | translate" type="stroked" />
+        </div> -->
+
+    </form>
+
+</div>

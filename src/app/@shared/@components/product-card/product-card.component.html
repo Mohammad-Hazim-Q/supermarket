@@ -1,22 +1,20 @@
 <mat-card class="product-card">
     <div class="product-card__img-wrapper">
-        <img mat-card-image
-            src="https://images.deliveryhero.io/image/nv-jo/Dalal%20Taha/MCE%205/6253341502250.png?width=450"
-            alt="Photo of a Shiba Inu">
+        <img mat-card-image [src]="product.imageUrl" [alt]="product.nameEn">
     </div>
     <mat-card-content>
-        <p matTooltip="text" class="product-card__title">
-            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from
-            Japan.
-            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was
-            originally
-            bred for hunting.
+        <p [matTooltip]="translate.currentLang == 'en' ? product.nameEn : product.nameAr" class="product-card__title">
+            {{translate.currentLang == 'en' ? product.nameEn : product.nameAr}}
         </p>
     </mat-card-content>
     <mat-card-actions>
-        <button [matTooltip]="'shared.product.addToBasket' | translate" color="primary"
-            mat-icon-button><mat-icon>add_shopping_cart</mat-icon></button>
-        <button [matTooltip]="'shared.product.addToFavorites' | translate"
-            mat-icon-button><mat-icon>favorite_border</mat-icon></button>
+        <div class="card-actions-container">
+            <button (click)="addToBasket()" [matTooltip]="'shared.product.addToBasket' | translate" color="primary"
+                mat-icon-button><mat-icon>add_shopping_cart</mat-icon></button>
+            <button [matTooltip]="'shared.product.addToFavorites' | translate"
+                mat-icon-button><mat-icon>favorite_border</mat-icon></button>
+        </div>
+
+        <button color="primary" mat-stroked-button>{{product.price}} {{'shared.misc.jd' | translate}}</button>
     </mat-card-actions>
 </mat-card>
