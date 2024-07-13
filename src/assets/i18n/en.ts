@@ -8,14 +8,21 @@ export const englishLocal: Locale = {
                 login: {
                     stepOne: {
                         login: "Login",
+                        register: "Create Account",
+                        registerForm: {
+                            password: "Password",
+                            confirmPassword: "Confirm Password",
+                            name: "Full Name",
+                            email: "Email",
+                        },
                         form: {
+
                             email: "Email",
                             password: "Password",
                             forgotPassword: "Forgot Password?",
                             forgotPasswordSuccess: "An email has been sent to your email address successfully.",
                             forgotPasswordFailed: "An error has occurred while sending the email.",
                             login: "Login",
-                            sso: "Single Sign On",
                             validations: {
                                 invalidEmail: "Please enter a valid email address."
                             },
@@ -43,6 +50,7 @@ export const englishLocal: Locale = {
             products: {
                 title: "Products",
                 matchingResults: "Matching results",
+                allProducts: "All products"
             },
 
             favorites: {
@@ -52,7 +60,8 @@ export const englishLocal: Locale = {
                 title: "Basket",
                 total: "Total",
                 checkout: "Checkout",
-                empty: "Your basket is empty."
+                empty: "Your basket is empty.",
+                price: "Price"
             },
             layout: {
                 header: {
@@ -127,7 +136,8 @@ export const englishLocal: Locale = {
                 edit: 'Edit',
                 delete: 'Delete',
                 cancel: 'Cancel',
-                jd: "JD"
+                jd: "JD",
+                noData: "No Data Yet.",
             }
         }
 

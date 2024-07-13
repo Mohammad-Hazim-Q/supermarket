@@ -10,7 +10,7 @@ export class LayoutService {
 
   rightDrawer$: Subject<{ [key: string]: any } | undefined> = new Subject()
 
-  // notificationsCount$: BehaviorSubject<number> = new BehaviorSubject(0);
+  basketItemsCount$: BehaviorSubject<number> = new BehaviorSubject(0);
 
   constructor() { }
 
@@ -21,5 +21,9 @@ export class LayoutService {
 
   toggleRightDrawer(payload?: { [key: string]: any }) {
     this.rightDrawer$.next(payload)
+  }
+
+  updateBasketCount(count: number) {
+    this.basketItemsCount$.next(count);
   }
 }

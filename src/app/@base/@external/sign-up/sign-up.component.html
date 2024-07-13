@@ -1,1 +1,138 @@
-<p>sign-up works!</p>
+<div class="login-page-wrapper">
+
+    <div class="login-card">
+
+        <div class="login-card__language">
+            <button mat-button color="primary" [matMenuTriggerFor]="languageMenu">{{currentLanguage}}</button>
+            <mat-menu #languageMenu="matMenu">
+                <button *ngFor="let lang of filteredSystemLanguages" (click)="switchLanguage(lang)"
+                    mat-menu-item>{{("pages.layout.header.language." + lang) | translate}}</button>
+            </mat-menu>
+        </div>
+
+        <div class="login-card__logo_container">
+            <img src="assets/images/app-logo.svg" alt="Login Page Logo">
+        </div>
+
+        <form cdkTrapFocus [cdkTrapFocusAutoCapture]="true" class="login-card__form" [formGroup]="form">
+
+            <mat-form-field class="col-12 mt-1" appearance="outline">
+                <mat-label>{{'pages.external.login.stepOne.registerForm.email' | translate}}</mat-label>
+                <input cdkFocusInitial type="email" formControlName="email" matInput>
+                <mat-icon matSuffix>email</mat-icon>
+                <mat-error *ngIf="form.get('email')?.hasError('required')">
+                    {{'shared.validation.required' | translate}}
+                </mat-error>
+                <mat-error *ngIf="form.get('email')?.hasError('email')">
+                    {{'pages.external.login.stepOne.form.validations.invalidEmail' | translate}}
+                </mat-error>
+            </mat-form-field>
+
+            <div class="p-relative">
+                <div *ngIf="isDialogOpen" class="custom-dialog col-12">
+
+                    <div class="d-flex password-error">
+                        <mat-icon *ngIf="form.get('password')?.hasError('uppercaseError')" class="invalid-value"
+                            aria-hidden="false">
+                            cancel
+                        </mat-icon>
+                        <mat-icon *ngIf="!form.get('password')?.hasError('uppercaseError')" class="valid-value"
+                            aria-hidden="false" fontIcon="check_circle">
+                            check_circle
+                        </mat-icon>
+                        <span>{{'pages.external.validations.uppercaseError' | translate}}</span>
+                    </div>
+
+                    <div class="password-error">
+
+                        <mat-icon *ngIf="form.get('password')?.hasError('lowercaseError')" class="invalid-value"
+                            aria-hidden="false" fontIcon="cancel">
+                            cancel
+                        </mat-icon>
+                        <mat-icon *ngIf="!form.get('password')?.hasError('lowercaseError')" class="valid-value"
+                            aria-hidden="false" fontIcon="check_circle">
+                            check_circle
+                        </mat-icon>
+                        <span>{{'pages.external.validations.lowercaseError' | translate}}</span>
+                    </div>
+
+
+                    <div class="d-flex password-error">
+                        <mat-icon *ngIf="form.get('password')?.hasError('digitsError')" class="invalid-value"
+                            aria-hidden="false" fontIcon="cancel">
+                            cancel
+                        </mat-icon>
+                        <mat-icon *ngIf="!form.get('password')?.hasError('digitsError')" class="valid-value"
+                            aria-hidden="false" fontIcon="check_circle">
+                            check_circle
+                        </mat-icon>
+
+                        <span>{{'pages.external.validations.digitsError' | translate}}</span>
+                    </div>
+                    <div class="d-flex password-error">
+
+                        <mat-icon *ngIf="form.get('password')?.hasError('specialCharacterError')" class="invalid-value"
+                            aria-hidden="false" fontIcon="cancel">
+                            cancel
+                        </mat-icon>
+                        <mat-icon *ngIf="!form.get('password')?.hasError('specialCharacterError')" class="valid-value"
+                            aria-hidden="false" fontIcon="check_circle">
+                            check_circle
+                        </mat-icon>
+
+                        <span>{{'pages.external.validations.specialCharacterError' | translate}}</span>
+                    </div>
+
+                    <div class="d-flex password-error">
+
+                        <mat-icon *ngIf="form.get('password')?.hasError('minimumLengthError')" class="invalid-value"
+                            aria-hidden="false" fontIcon="cancel">
+                            cancel
+                        </mat-icon>
+                        <mat-icon *ngIf="!form.get('password')?.hasError('minimumLengthError')" class="valid-value"
+                            aria-hidden="false" fontIcon="check_circle">
+                            check_circle
+                        </mat-icon>
+
+                        <span>{{'pages.external.validations.minimumLengthError' | translate}}</span>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <mat-form-field class="col-12 mt-1 p-relative" appearance="outline">
+                <mat-label>{{'pages.external.login.stepOne.registerForm.password' | translate}}</mat-label>
+                <input (focus)="isDialogOpen = true" (blur)="isDialogOpen = false" formControlName="password" matInput
+                    [type]="hide ? 'password' : 'text'">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+
+                <mat-error *ngIf="form.get('password')?.hasError('required')">
+                    {{'shared.validation.required' | translate}}
+                </mat-error>
+
+
+            </mat-form-field>
+
+            <mat-form-field class="col-12 mt-1" appearance="outline">
+                <mat-label>{{'pages.external.login.stepOne.registerForm.name' | translate}}</mat-label>
+                <input formControlName="name" matInput>
+                <mat-icon matSuffix>person</mat-icon>
+                <mat-error *ngIf="form.get('name')?.hasError('required')">
+                    {{'shared.validation.required' | translate}}
+                </mat-error>
+
+            </mat-form-field>
+
+            <div class="col-12 actions">
+                <button color="primary" class="mat-button-medium w-100" mat-raised-button [disabled]="form.invalid"
+                    (click)="signUp()">{{'pages.external.login.stepOne.register' | translate}}</button>
+            </div>
+
+        </form>
+
+    </div>
+</div>

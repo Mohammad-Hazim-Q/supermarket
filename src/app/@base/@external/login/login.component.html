@@ -53,10 +53,14 @@
 
         <div class="row mt-2">
 
-            <button color="primary" class="mat-button-large w-100" mat-raised-button [disabled]="form.invalid"
+            <button color="primary" class="mat-button-medium w-100" mat-raised-button [disabled]="form.invalid"
                 (click)="login()">{{'pages.external.login.stepOne.form.login' | translate}}</button>
-            <!-- <app-action-button (clicked)="login()" [disabled]="form.invalid" [fullWidth]="true" [isLoading]="isLoading"
-                [text]="'pages.external.login.stepOne.form.login' | translate" /> -->
+        </div>
+
+        <div class="row mt-2">
+
+            <button color="primary" class="mat-button-small w-100" mat-stroked-button
+                (click)="redirectToRegister()">{{'pages.external.login.stepOne.register' | translate}}</button>
         </div>
 
         <!-- <div class="col-12 mt-3">

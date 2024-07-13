@@ -44,3 +44,10 @@ export interface Product extends AbstractResponseData {
     price: number;
     imageUrl: string;
 }
+
+
+export interface Basket extends AbstractResponseData {
+    userId: number;
+    id: number;
+    product: Product
+}

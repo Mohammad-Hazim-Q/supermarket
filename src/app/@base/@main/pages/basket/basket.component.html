@@ -1,227 +1,61 @@
 <div class="basket-container">
 
-    <div class="basket-container__basket-items">
+    <ng-container *ngIf="basket$ | async as data">
 
-        <div class="basket-container__basket-items__item">
-            <div class="item-img-container">
-                <img src="https://images.deliveryhero.io/image/nv-jo/Dalal%20Taha/MCE%205/6253341502250.png?width=450"
-                    alt="Product">
-            </div>
+        <ng-container *ngIf="data.length > 0; else noDataFound">
 
-            <div class="item-metdata">
-                <div class="item-title">
-                    <span matTooltip="text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
-                    <span>{{'pages.basket.total' | translate}}</span>
-                </div>
-                <div class="item-actions">
+            <div *ngFor="let basket of data" class="basket-container__basket-items">
 
-                    <button mat-button color="primary">
-                        <mat-icon>add_circle_outline</mat-icon>
-                    </button>
+                <div class="basket-container__basket-items__item">
+                    <div class="item-img-container">
+                        <img [src]="basket.product.imageUrl" alt="Product">
+                    </div>
 
-                    <span class="item-quantity">1</span>
+                    <div class="item-metdata">
+                        <div class="item-title">
+                            <span matTooltip="text">{{
+                                translate.currentLang == 'en' ? basket.product.nameEn : basket.product.nameAr
+                                }}</span>
+                            <span>
+                                {{'pages.basket.price' | translate}}:
+                                <button color="primary" mat-stroked-button>{{basket.product.price}} {{'shared.misc.jd' |
+                                    translate}}</button>
 
-                    <button mat-button color="warn">
-                        <mat-icon>remove_circle_outline</mat-icon>
-                    </button>
+                            </span>
+                        </div>
+                        <!-- <div class="item-actions">
+    
+                        <button mat-button color="primary">
+                            <mat-icon>add_circle_outline</mat-icon>
+                        </button>
+    
+                        <span class="item-quantity">1</span>
+    
+                        <button mat-button color="warn">
+                            <mat-icon>remove_circle_outline</mat-icon>
+                        </button>
+    
+                    </div> -->
+                    </div>
 
-                </div>
-            </div>
-
-            <div class="remove-item">
-                <button mat-icon-button color="warn">
-                    <mat-icon>delete</mat-icon>
-                </button>
-            </div>
-
-        </div>
-        <div class="basket-container__basket-items__item">
-            <div class="item-img-container">
-                <img src="https://images.deliveryhero.io/image/nv-jo/Dalal%20Taha/MCE%205/6253341502250.png?width=450"
-                    alt="Product">
-            </div>
-
-            <div class="item-metdata">
-                <div class="item-title">
-                    <span matTooltip="text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
-                    <span>{{'pages.basket.total' | translate}}</span>
-                </div>
-                <div class="item-actions">
-
-                    <button mat-button color="primary">
-                        <mat-icon>add_circle_outline</mat-icon>
-                    </button>
-
-                    <span class="item-quantity">1</span>
-
-                    <button mat-button color="warn">
-                        <mat-icon>remove_circle_outline</mat-icon>
-                    </button>
+                    <div class="remove-item">
+                        <button (click)="deleteItem(basket.id)" [matTooltip]="'shared.misc.delete' | translate"
+                            mat-icon-button color="warn">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </div>
 
                 </div>
             </div>
 
-            <div class="remove-item">
-                <button mat-icon-button color="warn">
-                    <mat-icon>delete</mat-icon>
-                </button>
-            </div>
+        </ng-container>
 
-        </div>
-        <div class="basket-container__basket-items__item">
-            <div class="item-img-container">
-                <img src="https://images.deliveryhero.io/image/nv-jo/Dalal%20Taha/MCE%205/6253341502250.png?width=450"
-                    alt="Product">
-            </div>
 
-            <div class="item-metdata">
-                <div class="item-title">
-                    <span matTooltip="text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
-                    <span>{{'pages.basket.total' | translate}}</span>
-                </div>
-                <div class="item-actions">
+    </ng-container>
 
-                    <button mat-button color="primary">
-                        <mat-icon>add_circle_outline</mat-icon>
-                    </button>
 
-                    <span class="item-quantity">1</span>
-
-                    <button mat-button color="warn">
-                        <mat-icon>remove_circle_outline</mat-icon>
-                    </button>
-
-                </div>
-            </div>
-
-            <div class="remove-item">
-                <button mat-icon-button color="warn">
-                    <mat-icon>delete</mat-icon>
-                </button>
-            </div>
-
-        </div>
-        <div class="basket-container__basket-items__item">
-            <div class="item-img-container">
-                <img src="https://images.deliveryhero.io/image/nv-jo/Dalal%20Taha/MCE%205/6253341502250.png?width=450"
-                    alt="Product">
-            </div>
-
-            <div class="item-metdata">
-                <div class="item-title">
-                    <span matTooltip="text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
-                    <span>{{'pages.basket.total' | translate}}</span>
-                </div>
-                <div class="item-actions">
-
-                    <button mat-button color="primary">
-                        <mat-icon>add_circle_outline</mat-icon>
-                    </button>
-
-                    <span class="item-quantity">1</span>
-
-                    <button mat-button color="warn">
-                        <mat-icon>remove_circle_outline</mat-icon>
-                    </button>
-
-                </div>
-            </div>
-
-            <div class="remove-item">
-                <button mat-icon-button color="warn">
-                    <mat-icon>delete</mat-icon>
-                </button>
-            </div>
-
-        </div>
-        <div class="basket-container__basket-items__item">
-            <div class="item-img-container">
-                <img src="https://images.deliveryhero.io/image/nv-jo/Dalal%20Taha/MCE%205/6253341502250.png?width=450"
-                    alt="Product">
-            </div>
-
-            <div class="item-metdata">
-                <div class="item-title">
-                    <span matTooltip="text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
-                    <span>{{'pages.basket.total' | translate}}</span>
-                </div>
-                <div class="item-actions">
-
-                    <button mat-button color="primary">
-                        <mat-icon>add_circle_outline</mat-icon>
-                    </button>
-
-                    <span class="item-quantity">1</span>
-
-                    <button mat-button color="warn">
-                        <mat-icon>remove_circle_outline</mat-icon>
-                    </button>
-
-                </div>
-            </div>
-
-            <div class="remove-item">
-                <button mat-icon-button color="warn">
-                    <mat-icon>delete</mat-icon>
-                </button>
-            </div>
-
-        </div>
-        <div class="basket-container__basket-items__item">
-            <div class="item-img-container">
-                <img src="https://images.deliveryhero.io/image/nv-jo/Dalal%20Taha/MCE%205/6253341502250.png?width=450"
-                    alt="Product">
-            </div>
-
-            <div class="item-metdata">
-                <div class="item-title">
-                    <span matTooltip="text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
-                    <span>{{'pages.basket.total' | translate}}</span>
-                </div>
-                <div class="item-actions">
-
-                    <button mat-button color="primary">
-                        <mat-icon>add_circle_outline</mat-icon>
-                    </button>
-
-                    <span class="item-quantity">1</span>
-
-                    <button mat-button color="warn">
-                        <mat-icon>remove_circle_outline</mat-icon>
-                    </button>
-
-                </div>
-            </div>
-
-            <div class="remove-item">
-                <button mat-icon-button color="warn">
-                    <mat-icon>delete</mat-icon>
-                </button>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="basket-container__basket-invoice">
-
-        <div class="invoice-total">
-            <div>
-                {{'pages.basket.total' | translate}}:
-
-            </div>
-            <div>
-                {{90}} {{'shared.misc.jd' | translate}}
-            </div>
-        </div>
-        <mat-divider class="mt-2"></mat-divider>
-        <div class="row justify-content-center mt-5">
-            <div class="col-md-6">
-                <button class="w-100" color="primary" mat-raised-button>
-                    {{'pages.basket.checkout' | translate}}
-                </button>
-            </div>
-        </div>
-
-    </div>
+    <ng-template #noDataFound>
+        <div class="no-data mt-5">{{'shared.misc.noData' | translate}}</div>
+    </ng-template>
 
 </div>

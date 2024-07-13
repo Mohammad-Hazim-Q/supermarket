@@ -4,7 +4,6 @@ import * as CryptoJS from "crypto-js";
 import { environment } from 'environments/environment';
 import { ApiService } from '../api/api.service';
 import { LoginResponse, SystemUser } from '../types/auth.type';
-import { SuccessResponse } from '../types/shared.types';
 // import { UserRole, UserType } from '@main/@base/@pages/users/types/user.type';
 @Injectable({
   providedIn: 'root'
@@ -18,6 +17,10 @@ export class AuthService {
 
   get isLoggedIn(): boolean {
     return !!this.currentUser;
+  }
+
+  get hasToken(): boolean {
+    return !!localStorage.getItem('access-token');
   }
 
   getLoggedInUser() {
@@ -36,23 +39,19 @@ export class AuthService {
   }
 
 
-  setPassword(data: {
-    token: string;
+  signUp(data: {
+    email: string;
     password: string;
+    name: string;
   }) {
 
-    return this._apiService.put<SuccessResponse>(this._path + '/set-password', {
-      token: data.token,
-      password: this.encrypt(data.password)
+    return this._apiService.post<LoginResponse>(this._path + '/signup', {
+      email: data.email,
+      password: data.password,
+      name: data.name,
     })
   }
 
-  forgotPassword(email: string) {
-
-    return this._apiService.post<SuccessResponse>(this._path + '/forget-password', {
-      email: this.encrypt(email)
-    })
-  }
 
   setAccessToken(token: string) {
     localStorage.setItem('access-token', token)
@@ -74,7 +73,6 @@ export class AuthService {
 
   kickOut() { // Just kidding
     localStorage.removeItem('access-token')
-    this._router.navigateByUrl('external/login');
     this.currentUser = null;
   }
 }

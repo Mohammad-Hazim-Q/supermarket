@@ -9,10 +9,10 @@
     </mat-card-content>
     <mat-card-actions>
         <div class="card-actions-container">
-            <button (click)="addToBasket()" [matTooltip]="'shared.product.addToBasket' | translate" color="primary"
-                mat-icon-button><mat-icon>add_shopping_cart</mat-icon></button>
-            <button [matTooltip]="'shared.product.addToFavorites' | translate"
-                mat-icon-button><mat-icon>favorite_border</mat-icon></button>
+            <button (click)="addToBasket(product)" [matTooltip]="'shared.product.addToBasket' | translate"
+                color="primary" mat-icon-button><mat-icon>add_shopping_cart</mat-icon></button>
+            <!-- <button [matTooltip]="'shared.product.addToFavorites' | translate"
+                mat-icon-button><mat-icon>favorite_border</mat-icon></button> -->
         </div>
 
         <button color="primary" mat-stroked-button>{{product.price}} {{'shared.misc.jd' | translate}}</button>

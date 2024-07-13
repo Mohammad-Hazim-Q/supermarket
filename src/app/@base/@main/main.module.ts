@@ -40,7 +40,7 @@ import { BasketComponent } from './pages/basket/basket.component';
     MatBadgeModule,
     AvatarModule,
     MatDividerModule,
-    MatDialogModule
+    MatDialogModule,
   ],
   providers: [
     { provide: DEFAULT_CURRENCY_CODE, useValue: 'JOD' }

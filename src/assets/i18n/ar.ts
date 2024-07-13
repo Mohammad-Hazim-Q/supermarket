@@ -3,13 +3,18 @@ import { Locale } from './locale.type'
 export const arabicLocal: Locale = {
     lang: "ar",
     data: {
-
         pages: {
-
             external: {
                 login: {
                     stepOne: {
                         login: "تسجيل الدخول",
+                        register: "انشاء حساب",
+                        registerForm: {
+                            password: "كلمة المرور",
+                            confirmPassword: "تأكيد كلمة المرور",
+                            name: "الإسم",
+                            email: "البريد الإلكتروني",
+                        },
                         form: {
                             email: "البريد الإلكتروني",
                             password: "كلمة المرور",
@@ -27,7 +32,6 @@ export const arabicLocal: Locale = {
                         }
                     },
                 },
-
                 validations: {
                     uppercaseError: "على الأقل حرف إنجليزي كبير واحد.",
                     lowercaseError: "على الأقل حرف إنجليزي صغير واحد.",
@@ -46,6 +50,7 @@ export const arabicLocal: Locale = {
             products: {
                 title: "منتجاتنا",
                 matchingResults: "نتائج مطابقة",
+                allProducts: "جميع المنتجات"
             },
             favorites: {
                 title: "المفضلة",
@@ -54,7 +59,8 @@ export const arabicLocal: Locale = {
                 title: "السّلة",
                 total: "الإجمالي",
                 checkout: "الدفع",
-                empty: "سلة مشترياتك فارغة"
+                empty: "سلة مشترياتك فارغة",
+                price: "السعر"
             },
             layout: {
                 header: {
@@ -127,7 +133,8 @@ export const arabicLocal: Locale = {
                 edit: 'تعديل',
                 delete: 'حذف',
                 cancel: 'الغاء',
-                jd: "د.أ"
+                jd: "د.أ",
+                noData: "لا توجد بيانات حتى الآن.",
             }
         },
     }

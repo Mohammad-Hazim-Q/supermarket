@@ -66,7 +66,7 @@ export class LoginComponent extends BaseComponent {
 
           this.isLoading = false;
 
-          this._authService.setAccessToken(res.accessToken)
+          this._authService.setAccessToken(res.token)
           this._authService.currentUser = res.user
 
           this._messageService.showSuccess()
@@ -93,5 +93,10 @@ export class LoginComponent extends BaseComponent {
 
   }
 
+  redirectToRegister() {
+
+    this.dialogRef.close();
+    this.router.navigate(['external/sign-up']);
+  }
 
 }

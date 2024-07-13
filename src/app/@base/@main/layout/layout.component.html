@@ -18,10 +18,10 @@
         <span>{{'pages.products.title'| translate}}</span>
       </div>
 
-      <div class="sidenav__item" routerLink="/main/favorites" routerLinkActive="active">
+      <!-- <div class="sidenav__item" routerLink="/main/favorites" routerLinkActive="active">
         <mat-icon fontSet="material-icons-outlined">favorite_border</mat-icon>
         <span>{{'pages.favorites.title'| translate}}</span>
-      </div>
+      </div> -->
 
     </div>
   </mat-sidenav>
@@ -54,15 +54,17 @@
         <div class="header-container__item header-action-controls">
           <div class="action-control">
 
-            <button (click)="rightDrawer.open()" [matTooltip]="'pages.basket.title'| translate"
-              mat-icon-button><mat-icon fontSet="material-icons-outlined">shopping_cart</mat-icon></button>
+            <button (click)="openBasket()" [matTooltip]="'pages.basket.title'| translate" mat-icon-button>
+              <mat-icon [matBadge]="basketItemsCount$ | async" matBadgePosition="above after"
+                [matBadgeHidden]="(basketItemsCount$ | async) == '0'" matBadgeColor="accent" matBadgeSize="small"
+                fontSet="material-icons-outlined">shopping_cart</mat-icon></button>
           </div>
 
           <div class="action-control">
-            <!-- *ngIf="userFullName" -->
-            <div class="avatar-container" [matMenuTriggerFor]="userControlMenu">
 
-              <ngx-avatars size="30" name="Jhon Doe"></ngx-avatars>
+            <div *ngIf="userFullName" class="avatar-container" [matMenuTriggerFor]="userControlMenu">
+
+              <ngx-avatars size="30" [name]="userFullName"></ngx-avatars>
 
               <div class="avatar-name">{{userFullName}}</div>
               <!-- <button [matMenuTriggerFor]="userControlMenu"
@@ -70,12 +72,6 @@
 
               <mat-menu #userControlMenu="matMenu">
 
-                <div class="menu-item-container">
-                  <button class="w-100 header-menu" routerLink="/main/my-profile" mat-button>
-                    <mat-icon>person</mat-icon>
-                    {{'pages.layout.header.userControlPanel.userProfile' |translate}}
-                  </button>
-                </div>
                 <div class="menu-item-container">
                   <button class="w-100 header-menu" (click)="logout()" color="warn" mat-button>
                     <mat-icon>logout</mat-icon>

@@ -33,11 +33,11 @@ export class ApiService {
     )
   }
 
-  delete<T = any>(path: string, body: APIData = {}) {
+  delete<T = any>(path: string, params: APIData = {}) {
     return this._http.delete<T>(
       environment.apiUrl + path,
       {
-        body
+        params
       }
     )
   }

@@ -16,10 +16,10 @@ export class AuthInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
-    let token = localStorage.getItem('access-token')!;
+    let token = localStorage.getItem('access-token') || '';
 
     let _headers = {
-      "Authorization": 'Bearer ' + token,
+      "Authorization": token,
       'Accept': 'application/json',
       'Accept-Language': this.translate.currentLang || environment.defaultLanguage || 'en'
     }

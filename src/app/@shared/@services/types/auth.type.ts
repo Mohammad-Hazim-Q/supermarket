@@ -8,7 +8,7 @@ export interface SystemUser {
 
 export interface LoginResponse {
     user: SystemUser;
-    accessToken: string;
+    token: string;
 }
 
 
